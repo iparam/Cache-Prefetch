@@ -1,0 +1,40 @@
+<div data-role="header" class="header">
+</div>
+
+<div data-role="content" class="content">
+</div>	
+
+<div data-role="footer" class="footer" style="text-align:center">
+</div>	
+
+<script type="text/javascript">
+	<%= store_key %>
+</script>
+
+<script id="header" type="text/template">
+	<h1>Listing of {{ carName	}}</h1>
+</script>
+
+<script id="content" type="text/template">
+	<span>{{ pageName }}</span>
+</script>
+
+<script id="footer" type="text/template">
+	<span> CopyRight &copy; {{ user }} </span> 
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		var carName =  localStorage.getItem("<%= page_key('carName') %>");
+		var pageName = localStorage.getItem("<%= page_key('pageName') %>")
+		var user = localStorage.getItem("<%= page_key('user') %>")
+		var data = {carName: carName , pageName: pageName,user: user}
+		console.log(data);
+		var carTemplate = $('#header').html();
+		var pageTemplate = $('#content').html();
+		var footerTemplate = $("#footer").html();
+		$('div.header').html(Mustache.to_html(carTemplate, data));
+		$('div.content').html(Mustache.to_html(pageTemplate, data));
+		$('div.footer').html(Mustache.to_html(footerTemplate,data));
+	})
+</script>	

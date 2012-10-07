@@ -1,0 +1,18 @@
+<html <%= cache_manifest %>>
+	<head>
+		<title>
+			jQuery Mobile Demo Caching app
+		</title>
+		
+		<link rel="stylesheet" href="./stylesheets/mjquery.css" />
+		<script src="./javascripts/jquery.js"></script>
+		
+		<script src="./javascripts/mustache.js"> </script>
+	</head>
+	<body>
+		<div data-role="page">
+			<%= yield %> 
+		</div>
+		<script src="./javascripts/mjquery.js"></script>	
+	</body>
+</html>
